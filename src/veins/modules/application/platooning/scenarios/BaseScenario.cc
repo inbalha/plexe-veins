@@ -103,7 +103,7 @@ void BaseScenario::initializeControllers() {
 	//consensus parameters
 	int position = positionHelper->getPosition();
 	traciVehicle->setGenericInformation(CC_SET_VEHICLE_POSITION, &position, sizeof(int));
-	int nCars = positionHelper->getPlatoonSize();
+	int nCars = positionHelper->getPlatoonSize(positionHelper->getPlatoonId());
 	traciVehicle->setGenericInformation(CC_SET_PLATOON_SIZE, &nCars, sizeof(int));
 
 	Plexe::VEHICLE_DATA vehicleData;

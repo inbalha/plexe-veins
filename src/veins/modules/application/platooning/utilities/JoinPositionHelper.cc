@@ -33,9 +33,9 @@ void JoinPositionHelper::finish() {
 	BasePositionHelper::finish();
 }
 
-bool JoinPositionHelper::isInSamePlatoon(int vehicleId) {
+/*bool JoinPositionHelper::isInSamePlatoon(int vehicleId) {
 	return true;
-}
+}*/
 
 int JoinPositionHelper::getIdFromExternalId(std::string externalId) {
 	int dotIndex = externalId.find_last_of('.');

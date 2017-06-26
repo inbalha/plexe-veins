@@ -28,7 +28,7 @@ void SlottedBeaconing::initialize(int stage) {
 		int positionInPlatoon = positionHelper->getPosition();
 		//one beacon interval is divided into 'platoonSize' slots
 		slotNumber = positionInPlatoon;
-		slotTime = SimTime(slotNumber * beaconingInterval / positionHelper->getPlatoonSize());
+		slotTime = SimTime(slotNumber * beaconingInterval / positionHelper->getPlatoonSize(positionHelper->getPlatoonId()));
 
 		//only the leader starts to communicate. the followers use
 		//the slotted approach, i.e., they compute their sending time

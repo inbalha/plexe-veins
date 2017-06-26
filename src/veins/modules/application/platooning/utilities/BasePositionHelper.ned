@@ -22,10 +22,65 @@ moduleinterface BasePositionHelper
     parameters:
         //number of cars in the scenario
         int nCars;
+        //number of cars in the platoon
+        int platoonSize1;
+        int platoonSize2;
+        int platoonSize3;
+        int platoonSize4;
+        int platoonSize5;
+        int platoonSize6;
+
+        int platoonSize7;
+        int platoonSize8;
+        int platoonSize9;
+        int platoonSize10;
+        int platoonSize11;
+        int platoonSize12;
+
+        int platoonSize13;
+        int platoonSize14;
+        int platoonSize15;
+        int platoonSize16;
+
+        int platoonSize17;
+        int platoonSize18;
+        int platoonSize19;
+        int platoonSize20;
+        int platoonSize21;
+        int platoonSize22;
+        int platoonSize23;
+        int platoonSize24;
+
+        int platoonSize25;
+        int platoonSize26;
+        int platoonSize27;
+        int platoonSize28;
+        int platoonSize29;
+        int platoonSize30;
+        int platoonSize31;
+        int platoonSize32;
+
+        int platoonSize33;
+        int platoonSize34;
+        int platoonSize35;
+        int platoonSize36;
+        int platoonSize37;
+        int platoonSize38;
+        int platoonSize39;
+        int platoonSize40;
+        int platoonSize41;
+        int platoonSize42;
+        int platoonSize43;
+        int platoonSize44;
+        int platoonSize45;
+        int platoonSize46;
+        int platoonSize47;
+        int platoonSize48;
+
+
         //number of lanes in the scenario
         int nLanes;
-        //number of cars in the platoon
-        int platoonSize;
+
 
         @display("i=block/app2");
         @class(BasePositionHelper);

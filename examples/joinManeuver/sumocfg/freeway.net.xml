@@ -1,27 +1,4 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-
-<!-- generated on Mon Jun  4 10:06:18 2012 by SUMO netconvert Version 0.13.1
-<?xml version="1.0" encoding="iso-8859-1"?>
-
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/netconvertConfiguration.xsd">
-
-    <input>
-        <node-files value="hw.nod.xml"/>
-        <edge-files value="hw.edg.xml"/>
-    </input>
-
-    <output>
-        <output-file value="hw.net.xml"/>
-    </output>
-
-    <ramp_guessing>
-        <ramps.guess value="true"/>
-        <ramps.ramp-length value="200"/>
-    </ramp_guessing>
-
-</configuration>
--->
-
 <net version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.sf.net/xsd/net_file.xsd">
 
     <location netOffset="0.00,254.00" convBoundary="0.00,0.00,50000.00,254.00" origBoundary="0.00,-254.00,50000.00,0.00" projParameter="!"/>

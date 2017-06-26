@@ -165,7 +165,9 @@ void UnicastProtocol::sendMessageDown(int destination, cPacket *msg, int encapsu
 
 	//TODO: check whether to leave this here or somewhere else
 	//if we are sending a unicast packet, schedule ack timeout
-	if (destination != -1)
+//	if (destination != -1)
+
+	if (false)
 	{
 		currentMsg = unicast->dup();
 		nAttempts = 0;
@@ -253,7 +255,7 @@ void UnicastProtocol::handleUnicastMessage(const UnicastMessage *msg)
 		//if it is a new message or a duplicate, we have anyhow to send the ack
 		if (enableAck)
 		{
-			sendAck(msg);
+		//	sendAck(msg);
 		}
 
 	}

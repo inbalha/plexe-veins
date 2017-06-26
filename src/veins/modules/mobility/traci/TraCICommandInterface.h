@@ -44,10 +44,12 @@ class TraCICommandInterface
 				void newRoute(std::string roadId);
 				void setParking();
 				std::string getRoadId();
+				std::string getRoadIdStranger(int vehicleId);
 				std::string getCurrentRoadOnRoute();
 				std::string getLaneId();
 				double getLanePosition();
 				std::list<std::string> getPlannedRoadIds();
+				std::list<std::string> getPlannedRoadIdsStranger(int vehicleId);				
 				std::string getRouteId();
 				void changeRoute(std::string roadId, double travelTime);
 				void stopAt(std::string roadId, double pos, uint8_t laneid, double radius, double waittime);

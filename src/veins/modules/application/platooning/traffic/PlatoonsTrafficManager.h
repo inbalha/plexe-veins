@@ -34,8 +34,7 @@ class PlatoonsTrafficManager : public TraCIBaseTrafficManager
 			platoonInsertHeadway = 0;
 			platoonInsertSpeed = 0;
 			platoonInsertTime = SimTime(0);
-			platoonLeaderHeadway = 0;
-			platoonSize = 0;
+			platoonLeaderHeadway = 0;			
 			nCars = 0;
 			nLanes = 0;
 		}
@@ -46,6 +45,7 @@ class PlatoonsTrafficManager : public TraCIBaseTrafficManager
 		cMessage *insertPlatoonMessage;
 
 		void insertPlatoons();
+		void insertHumans();
 
 		virtual void handleSelfMsg(cMessage *msg);
 
@@ -56,8 +56,12 @@ class PlatoonsTrafficManager : public TraCIBaseTrafficManager
 
 		//total number of vehicles to be injected
 		int nCars;
+		// total number of real platoon in the system
+		int realPlatoons;
+		//total number of human cars in the system
+		int humanCars;
 		//vehicles per platoon
-		int platoonSize;
+		std::vector<int> platoonSize;
 		//number of lanes
 		int nLanes;
 		//insert distance

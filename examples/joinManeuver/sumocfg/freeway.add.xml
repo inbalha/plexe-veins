@@ -1,0 +1,10 @@
+<additionals>
+    <instantInductionLoop id="insDetector_-edge_0_0" lane="-edge_0_0_0" pos="0.65" freq="1" file="out.txt" splitByType="0"/>
+    <instantInductionLoop id="insDetector_-edge_0_8" lane="-edge_0_8_0" pos="96" freq="1" file="out.txt" splitByType="0"/>
+    <instantInductionLoop id="insDetector_gneE9" lane="gneE9_0" pos="0.20" freq="1" file="out.txt" splitByType="0"/>
+    <instantInductionLoop id="insDetector_gneE11" lane="gneE11_0" pos="96" freq="1" file="out.txt" splitByType="0"/>
+    <e1Detector id="e1Detector_gneE14_0_5" lane="gneE14_0" pos="0.08" freq="1" file="out.txt" splitByType="0"/>
+    <e1Detector id="e1Detector_gneE34_0_2" lane="gneE34_0" pos="105" freq="1" file="out.txt" splitByType="0"/>
+    <e1Detector id="e1Detector_gneE34_0_3" lane="gneE34_0" pos="117" freq="1" file="out.txt" splitByType="0"/>
+    <e1Detector id="e1Detector_gneE41_0_3" lane="gneE41_0" pos="18.76" freq="1" file="out.txt" splitByType="0"/>
+</additionals>

@@ -251,6 +251,8 @@ DeciderResult* Decider80211p::checkIfSignalOk(AirFrame* frame) {
 			DBG_D11P << "Packet has bit Errors due to collision. Lost " << std::endl;
 			collisions++;
 			result = new DeciderResult80211(false, payloadBitrate, snirMin, recvPower_dBm, true);
+			std::cout<<"Packet has bit Errors due to collision. Lost " << std::endl;
+			std::cin.get();
 			break;
 
 		default:
@@ -475,10 +477,12 @@ simtime_t Decider80211p::processSignalEnd(AirFrame* msg) {
 		}
 		else if (whileSending) {
 			DBG_D11P << "packet was received while sending, sending it as control message to upper layer\n";
+
 			phy->sendControlMsgToMac(new cMessage("Error",RECWHILESEND));
 		}
 		else {
 			DBG_D11P << "packet was not received correctly, sending it as control message to upper layer\n";
+		
 			if (((DeciderResult80211 *)result)->isCollision()) {
 				phy->sendControlMsgToMac(new cMessage("Error", Decider80211p::COLLISION));
 			}

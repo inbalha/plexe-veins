@@ -133,8 +133,8 @@ void BaseApp::handleLowerMsg(cMessage *msg) {
 			vehicleData.time = epkt->getTime();
 			//send information to CACC
 			traciVehicle->setGenericInformation(CC_SET_VEHICLE_DATA, &vehicleData, sizeof(struct Plexe::VEHICLE_DATA));
-
 		}
+			std::cout<<"epkt->getVehicleId() "<<epkt->getVehicleId()<<endl;
 
 	}
 

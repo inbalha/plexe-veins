@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 06/26/17 09:53:34 by SUMO gui Version 0.26.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumo-gui.exeConfiguration.xsd">
+
+    <input>
+        <net-file value="./sumocfg/dup_freeway.net.xml"/>
+        <route-files value="./sumocfg/freeway.rou.xml"/>
+        <additional-files value="./sumocfg/freeway.add.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="1e9"/>
+        <step-length value="0.01"/>
+    </time>
+
+    <processing>
+        <time-to-teleport value="-1"/>
+    </processing>
+
+    <traci_server>
+        <remote-port value="51158"/>
+    </traci_server>
+
+    <random_number>
+        <seed value="0"/>
+    </random_number>
+
+</configuration>
+-->
+
+<instantE1>
+    <instantOut id="insDetector_-edge_0_0" time="0.32" state="stay" vehID="vtypeauto.23" speed="13.89" length="4.00" type="vtypeauto"/>
+    <instantOut id="insDetector_gneE9" time="0.32" state="stay" vehID="vtypeauto.35" speed="13.89" length="4.00" type="vtypeauto"/>
+    <instantOut id="insDetector_-edge_0_0" time="0.33" state="stay" vehID="vtypeauto.23" speed="13.89" length="4.00" type="vtypeauto"/>
+    <instantOut id="insDetector_-edge_0_0" time="0.34" state="stay" vehID="vtypeauto.23" speed="13.89" length="4.00" type="vtypeauto"/>
+    <instantOut id="insDetector_-edge_0_0" time="0.35" state="stay" vehID="vtypeauto.23" speed="13.89" length="4.00" type="vtypeauto"/>
+   <interval begin="0.00" end="1.00" id="e1Detector_gneE14_0_5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="0.00" end="1.00" id="e1Detector_gneE34_0_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="0.00" end="1.00" id="e1Detector_gneE34_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="0.00" end="1.00" id="e1Detector_gneE41_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1.00" end="2.00" id="e1Detector_gneE14_0_5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1.00" end="2.00" id="e1Detector_gneE34_0_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1.00" end="2.00" id="e1Detector_gneE34_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="1.00" end="2.00" id="e1Detector_gneE41_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2.00" end="3.00" id="e1Detector_gneE14_0_5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2.00" end="3.00" id="e1Detector_gneE34_0_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2.00" end="3.00" id="e1Detector_gneE34_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="2.00" end="3.00" id="e1Detector_gneE41_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3.00" end="4.00" id="e1Detector_gneE14_0_5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3.00" end="4.00" id="e1Detector_gneE34_0_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3.00" end="4.00" id="e1Detector_gneE34_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="3.00" end="4.00" id="e1Detector_gneE41_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4.00" end="4.37" id="e1Detector_gneE14_0_5" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4.00" end="4.37" id="e1Detector_gneE34_0_2" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4.00" end="4.37" id="e1Detector_gneE34_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+   <interval begin="4.00" end="4.37" id="e1Detector_gneE41_0_3" nVehContrib="0" flow="0.00" occupancy="0.00" speed="-1.00" length="-1.00" nVehEntered="0"/>
+</instantE1>

@@ -105,6 +105,11 @@ std::string TraCICommandInterface::Vehicle::getRoadId() {
 	return traci->genericGetString(CMD_GET_VEHICLE_VARIABLE, nodeId, VAR_ROAD_ID, RESPONSE_GET_VEHICLE_VARIABLE);
 }
 
+std::string TraCICommandInterface::Vehicle::getRoadIdStranger(int vehicleId) {
+	std::string st_vehicleId = "vtypeauto." + std::to_string(vehicleId);
+	return traci->genericGetString(CMD_GET_VEHICLE_VARIABLE, st_vehicleId, VAR_ROAD_ID, RESPONSE_GET_VEHICLE_VARIABLE);
+}
+
 std::string TraCICommandInterface::Vehicle::getCurrentRoadOnRoute() {
 	return traci->genericGetString(CMD_GET_VEHICLE_VARIABLE, nodeId, LANE_EDGE_ID, RESPONSE_GET_VEHICLE_VARIABLE);
 }
@@ -125,6 +130,11 @@ double TraCICommandInterface::Vehicle::getLanePosition() {
 	return traci->genericGetDouble(CMD_GET_VEHICLE_VARIABLE, nodeId, VAR_LANEPOSITION, RESPONSE_GET_VEHICLE_VARIABLE);
 }
 
+std::list<std::string> TraCICommandInterface::Vehicle::getPlannedRoadIdsStranger(int vehicleId) {
+	std::string st_vehicleId = "vtypeauto." + std::to_string(vehicleId);
+	return traci->genericGetStringList(CMD_GET_VEHICLE_VARIABLE, st_vehicleId, VAR_EDGES, RESPONSE_GET_VEHICLE_VARIABLE);
+}
+
 std::list<std::string> TraCICommandInterface::Vehicle::getPlannedRoadIds() {
 	return traci->genericGetStringList(CMD_GET_VEHICLE_VARIABLE, nodeId, VAR_EDGES, RESPONSE_GET_VEHICLE_VARIABLE);
 }
@@ -132,6 +142,7 @@ std::list<std::string> TraCICommandInterface::Vehicle::getPlannedRoadIds() {
 std::string TraCICommandInterface::Vehicle::getRouteId() {
 	return traci->genericGetString(CMD_GET_VEHICLE_VARIABLE, nodeId, VAR_ROUTE_ID, RESPONSE_GET_VEHICLE_VARIABLE);
 }
+
 
 std::list<std::string> TraCICommandInterface::Route::getRoadIds() {
 	return traci->genericGetStringList(CMD_GET_ROUTE_VARIABLE, routeId, VAR_EDGES, RESPONSE_GET_ROUTE_VARIABLE);
@@ -714,7 +725,6 @@ void TraCICommandInterface::Vehicle::setPrecedingVehicleData(double speed, doubl
 }
 
 unsigned int TraCICommandInterface::Vehicle::getLanesCount() {
-
 	TraCIBuffer buf = traci->connection.query(CMD_GET_VEHICLE_VARIABLE, TraCIBuffer() << static_cast<uint8_t>(VAR_GET_LANES_COUNT) << nodeId);
 
 	uint8_t cmdLength; buf >> cmdLength;
@@ -739,6 +749,7 @@ void TraCICommandInterface::Vehicle::setCruiseControlDesiredSpeed(double desired
 	uint8_t variableId = VAR_SET_CC_DESIRED_SPEED;
 	TraCIBuffer buf = traci->connection.query(CMD_SET_VEHICLE_VARIABLE, TraCIBuffer() << variableId << nodeId << desiredSpeed);
 	ASSERT(buf.eof());
+	std::cout<<"in set cruise control speed"<<endl;
 
 }
 
@@ -886,6 +897,7 @@ int TraCICommandInterface::Vehicle::getLaneChangeAction() {
 
 void TraCICommandInterface::Vehicle::setFixedLane(int laneIndex) {
 	uint8_t variableId = VAR_SET_FIXED_LANE;
+	std::cout<<"nodeId is "<<nodeId<<endl;
 	TraCIBuffer buf = traci->connection.query(CMD_SET_VEHICLE_VARIABLE, TraCIBuffer() << variableId << nodeId << laneIndex);
 	ASSERT(buf.eof());
 }

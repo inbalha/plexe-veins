@@ -20,20 +20,20 @@
 Define_Module(JoinTrafficManager);
 
 void JoinTrafficManager::initialize(int stage) {
-
+	std::cout<<"in join traffic manager - initialize"<<endl;
 	PlatoonsTrafficManager::initialize(stage);
 
 	if (stage == 0) {
 
 		insertJoinerMessage = new cMessage("");
-		scheduleAt(platoonInsertTime + SimTime(5), insertJoinerMessage);
+		//the platoon is inserted after 6 seconds
+		//the joiner does not enter the system as a result of the followoing line
+		scheduleAt(platoonInsertTime + SimTime(0.1), insertJoinerMessage);
 
 	}
-
 }
 
 void JoinTrafficManager::handleSelfMsg(cMessage *msg) {
-
 	PlatoonsTrafficManager::handleSelfMsg(msg);
 
 	if (msg == insertJoinerMessage) {
@@ -44,7 +44,9 @@ void JoinTrafficManager::handleSelfMsg(cMessage *msg) {
 
 void JoinTrafficManager::insertJoiner() {
 	automated.position = 0;
-	automated.lane = 2;
+	automated.lane = 0;
+	automated.speed = 0;
+	std::cout<<"**********about to enter add vehicle to queue in platoon traffic manager with 0 for route"<<endl;
 	addVehicleToQueue(0, automated);
 }
 

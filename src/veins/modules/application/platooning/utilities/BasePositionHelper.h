@@ -32,6 +32,40 @@ class BasePositionHelper : public BaseApplLayer
 		virtual void initialize(int stage);
 		virtual void finish();
 
+				/************** new ones */
+
+		virtual int initializenCars();
+		virtual int initializePlatoonNumber(); 
+		virtual int getLeaderIdUnknown(int id); 
+		virtual int getLeaderIdAccPlatoon(int platoonId); 
+		virtual bool isLeaderUnknownId(int id); 
+		virtual bool isHumanUnknownId(int id);
+		virtual int getPlatoonIdAccLeader(int id);
+		virtual void setRoundaboutLeader(int id);
+		virtual int getRoundaboutLeader();
+		virtual int getMemberIdUnknown(int vehicleId, int position);
+
+		// for calculating the speed from inside the roundabout
+		virtual void setTimeIn(double simTime1,int vehicleId);
+		virtual double getTimeIn(int vehicleId);
+		virtual double getYLocationIn(int vehicleId);
+		virtual double getXLocationIn(int vehicleId);
+		virtual void setYLocationIn(double Ylocation,int vehicleId);
+		virtual void setXLocationIn(double Xlocation,int vehicleId);
+
+		// for calculating the speed from iutside the roundabout
+		virtual void setTimeOut(double simTime1,int vehicleId);
+		virtual double getTimeOut(int vehicleId);
+		virtual double getYLocationOut(int vehicleId);
+		virtual double getXLocationOut(int vehicleId);
+		virtual void setYLocationOut(double Ylocation,int vehicleId);
+		virtual void setXLocationOut(double Xlocation,int vehicleId);
+
+		/**
+		 * Returns the platoon size
+		 */
+		virtual int getPlatoonSizeInitial(int platoonId);
+
 		/**
 		 * Returns the traci external id of this car
 		 */
@@ -68,6 +102,11 @@ class BasePositionHelper : public BaseApplLayer
 		virtual int getLeaderId();
 
 		/**
+		 * My addition: Returns the total number of cars in all platoons
+		 */
+		virtual int getnCars();
+
+		/**
 		 * Returns whether this vehicle is the leader of the platoon
 		 */
 		virtual bool isLeader();
@@ -81,6 +120,11 @@ class BasePositionHelper : public BaseApplLayer
 		 * Returns the id of the platoon
 		 */
 		virtual int getPlatoonId();
+	
+		/**
+		 * Returns the total number of platoons
+		 */
+		virtual int getPlatoonNumber();
 
 		/**
 		 * Returns the lane the platoon is traveling on
@@ -98,9 +142,14 @@ class BasePositionHelper : public BaseApplLayer
 		virtual int getLanesCount();
 
 		/**
+		 * Returns the platoon route
+		 */
+		virtual int getPlatoonRoute();
+
+		/**
 		 * Returns the platoon size
 		 */
-		virtual int getPlatoonSize();
+		virtual int getPlatoonSize(int platoonId);
 
 		/**
 		 * Sets the id of this car
@@ -165,7 +214,63 @@ class BasePositionHelper : public BaseApplLayer
 		/**
 		 * Sets the platoon size
 		 */
-		virtual void setPlatoonSize(int size);
+		virtual void setPlatoonSize(int platoonId, int size);
+
+		/**
+		 * Sets the platoon joiner
+		 */
+		virtual void setPlatoonJoiner();
+
+		/**
+		 * Updates the platoon joiner
+		 */
+		virtual void updatePlatoonJoiner(int platoonNumber,int status);
+		
+		/**
+		 * gets the platoon leader when vehicle id is not as the checked element id
+		 */	
+		//virtual int getLeaderIdUnknownMember(int vehicleId);
+
+		/**
+		 * checks whether the vehicle Id is a platoon leader
+		 */	
+		//virtual bool isLeaderUnknownMember(int vehicleId);
+
+		/**
+		 * gets the platoon Id based on vehicle Id 
+		 */	
+		//virtual int getPlatoonIdUnknownMember(int vehicleId);
+
+		/**
+		 * gets the joiner route
+		 */	
+		virtual	int getJoinerRoute();
+
+		/**
+		 * sets the joiner route
+		 */	
+		virtual void setJoinerRoute(int routeId);
+
+		/**
+		 * sets the platoon route for stranger
+		 */	
+		virtual int getPlatoonRouteStranger(int vehicleId);
+
+		/**
+		 * gets the platoon joiner
+		 */	
+		virtual int getPlatoonJoiner(int platoonId);
+
+		/**
+		 * checks whether a joiner or not
+		 */	
+		//virtual bool isPlatoonJoiner();
+
+		/**
+		 * gets the platoon joiner size
+		 */	
+		//virtual int getPlatoonJoinerSize();
+
 
 	protected:
 
@@ -178,13 +283,19 @@ class BasePositionHelper : public BaseApplLayer
 		//number of lanes
 		int nLanes;
 		//number of cars in the platoon
-		int platoonSize;
+		std::vector<int> platoonSize;
+		//Route of each platoon 
+		std::vector<int> platoonRoute;
 		//total number of platooning cars in the simulation
 		int nCars;
+		//total number of platoons in the simulation
+		int platoonNumber;
 		//largest automated car id in the simulation
 		int highestId;
 		//id of the leader of the platoon
 		int leaderId;
+		// vector - for each platoon the Id of the joiner in it
+		std::vector<int> platoonJoiner;
 		//id of the vehicle in front of me
 		int frontId;
 		//my position within the platoon
@@ -195,26 +306,35 @@ class BasePositionHelper : public BaseApplLayer
 		int platoonId;
 		//lane of this car's platoon
 		int platoonLane;
+		// the current route of the joiner
+		int joinerRoute;
+		// the vehicle that is currently in the roundabout and blocks the platoon that wants to get in
+		int roundaboutLeader;
+		std::vector<double> xLocationOut, yLocationOut,currentTimeOut;
+		std::vector<double> xLocationIn, yLocationIn,currentTimeIn; 
+
 
 	public:
+		// to update according to new defined componenets!!!
 		BasePositionHelper() {
 			mobility = 0;
 			traci = 0;
 			traciVehicle = 0;
 			myId = INVALID_PLATOON_ID;
 			nLanes = -1;
-			platoonSize = -1;
+			//platoonSize = -1;
 			nCars = -1;
+			platoonNumber = -1;
 			highestId = -1;
 			leaderId = INVALID_PLATOON_ID;
 			frontId = INVALID_PLATOON_ID;
 			position = -1;
-			nCars = -1;
-			platoonSize = -1;
 			nLanes = -1;
 			leader = false;
 			platoonId = INVALID_PLATOON_ID;
 			platoonLane = -1;
+			roundaboutLeader = -1;
+
 		}
 
 };

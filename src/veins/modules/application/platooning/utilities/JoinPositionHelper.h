@@ -28,7 +28,7 @@ class JoinPositionHelper : public BasePositionHelper
 		virtual void initialize(int stage);
 		virtual void finish();
 
-		virtual bool isInSamePlatoon(int vehicleId);
+		//virtual bool isInSamePlatoon(int vehicleId);
 
 	public:
 
